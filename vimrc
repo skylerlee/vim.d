@@ -2,7 +2,7 @@
 
 set nocompatible  " be iMproved
 
-let $DOTVIMD = expand('<sfile>:p:h')
+let $DOTVIMD = expand('$HOME/.vim.d')
 
 set rtp+=$DOTVIMD
 
