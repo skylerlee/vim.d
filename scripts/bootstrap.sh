@@ -2,6 +2,10 @@
 
 DOTVIMD=$HOME/.vim.d
 
+DEPENDENCIES=(
+  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+)
+
 function fetch_plugin {
   local file_url="$1"
   local dest_dir="$2"
@@ -11,7 +15,9 @@ function fetch_plugin {
 
 function prefetch_plugins {
   mkdir -p $DOTVIMD/autoload
-  fetch_plugin https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim $DOTVIMD/autoload
+  for dep in $DEPENDENCIES; do
+    fetch_plugin $dep $DOTVIMD/autoload
+  done
 }
 
 prefetch_plugins
