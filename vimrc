@@ -7,6 +7,8 @@ let $DOTVIMD = expand('$HOME/.vim.d')
 set rtp+=$DOTVIMD
 
 call plug#begin($DOTVIMD . '/bundle')
+Plug 'scrooloose/nerdtree'
+Plug 'vim-airline/vim-airline'
 Plug 'joshdick/onedark.vim'
 call plug#end()
 
