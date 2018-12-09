@@ -6,7 +6,7 @@ let $DOTVIMD = expand('$HOME/.vim.d')
 
 set rtp+=$DOTVIMD
 
-call plug#begin($DOTVIMD . '/bundle')
+call plug#begin('$DOTVIMD/bundle')
 Plug 'scrooloose/nerdtree'
 Plug 'vim-airline/vim-airline'
 Plug 'joshdick/onedark.vim'
@@ -22,4 +22,4 @@ function s:watch_settings_file()
   autocmd BufWritePost $DOTVIMD/settings.json call s:reload_settings()
 endfunction
 
-call s:watch_settings_file()
+autocmd VimEnter * call s:watch_settings_file()

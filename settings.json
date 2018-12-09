@@ -1,3 +1,13 @@
 {
-  "plugins": []
+  "plugins": [
+    {
+      "name": "scrooloose/nerdtree"
+    },
+    {
+      "name": "vim-airline/vim-airline"
+    },
+    {
+      "name": "joshdick/onedark.vim"
+    }
+  ]
 }
