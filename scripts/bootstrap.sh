@@ -16,9 +16,12 @@ function fetch_file {
 }
 
 function prefetch_plugins {
+  echo "Installing dependencies"
   for dep in ${DEPENDENCIES[@]}; do
+    echo "fetching: $dep"
     fetch_file $dep $DOTVIMD/autoload
   done
+  echo "Done."
 }
 
 prefetch_plugins
