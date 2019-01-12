@@ -16,7 +16,7 @@ function fetch_file {
 }
 
 function prefetch_plugins {
-  for dep in $DEPENDENCIES; do
+  for dep in ${DEPENDENCIES[@]}; do
     fetch_file $dep $DOTVIMD/autoload
   done
 }
