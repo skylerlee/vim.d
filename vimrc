@@ -5,7 +5,7 @@
 
 set nocompatible  " be iMproved
 
-let $DOTVIMD = expand('$HOME/.vim.d')
+let g:infra_path_root = expand('$HOME/.vim.d')
 
 set rtp+=$DOTVIMD
 
@@ -16,7 +16,7 @@ function s:register(name, conf)
   Plug a:name, a:conf
 endfunction
 
-call plug#begin('$DOTVIMD/bundle')
+call plug#begin(infra#path_resolve('bundle'))
 call infra#iter_dict(s:settings, function('s:register'))
 call plug#end()
 " End
