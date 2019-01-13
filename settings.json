@@ -1,13 +1,5 @@
 {
-  "plugins": [
-    {
-      "name": "scrooloose/nerdtree"
-    },
-    {
-      "name": "vim-airline/vim-airline"
-    },
-    {
-      "name": "joshdick/onedark.vim"
-    }
-  ]
+  "scrooloose/nerdtree": {},
+  "vim-airline/vim-airline": {},
+  "joshdick/onedark.vim": {}
 }

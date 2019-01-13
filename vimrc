@@ -10,15 +10,19 @@ let $DOTVIMD = expand('$HOME/.vim.d')
 set rtp+=$DOTVIMD
 
 " Initialize plugins
+let s:settings = infra#load_json('settings.json')
+
+function s:register(name, conf)
+  Plug a:name, a:conf
+endfunction
+
 call plug#begin('$DOTVIMD/bundle')
-Plug 'scrooloose/nerdtree'
-Plug 'vim-airline/vim-airline'
-Plug 'joshdick/onedark.vim'
+call infra#iter_dict(s:settings, function('s:register'))
 call plug#end()
 " End
 
 " Set colorscheme
-colorscheme onedark
+" colorscheme onedark
 
 function s:reload_settings()
   luafile $DOTVIMD/scripts/generate.lua
