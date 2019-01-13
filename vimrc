@@ -25,7 +25,6 @@ call plug#end()
 " colorscheme onedark
 
 function s:reload_settings()
-  luafile $DOTVIMD/scripts/generate.lua
 endfunction
 
 function s:watch_settings_file()
