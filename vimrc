@@ -7,7 +7,7 @@ set nocompatible  " be iMproved
 
 let g:infra_path_root = expand('$HOME/.vim.d')
 
-set rtp+=$DOTVIMD
+execute 'set rtp+=' . g:infra_path_root
 
 " Initialize plugins
 let s:settings = infra#load_json('settings.json')
@@ -27,8 +27,9 @@ call plug#end()
 function s:reload_settings()
 endfunction
 
-function s:watch_settings_file()
-  autocmd BufWritePost $DOTVIMD/settings.json call s:reload_settings()
+function s:post_vim_loaded()
+  let target = infra#path_resolve('settings.json')
+  call infra#eval('autocmd BufWritePost %s call s:reload_settings()', target)
 endfunction
 
-autocmd VimEnter * call s:watch_settings_file()
+autocmd VimEnter * call s:post_vim_loaded()
