@@ -21,8 +21,15 @@ call infra#iter_dict(s:settings, function('s:register'))
 call plug#end()
 " End
 
+" Set linenumber
+set number
+
 " Set colorscheme
-" colorscheme onedark
+colorscheme onedark
+
+" Set powerline
+set laststatus=2
+let g:lightline = { 'colorscheme': 'onedark' }
 
 function s:reload_settings()
 endfunction
