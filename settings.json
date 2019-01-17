@@ -1,5 +1,5 @@
 {
   "scrooloose/nerdtree": {},
-  "vim-airline/vim-airline": {},
+  "itchyny/lightline.vim": {},
   "joshdick/onedark.vim": {}
 }
