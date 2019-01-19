@@ -26,7 +26,7 @@ function prefetch_plugins {
 
 function install_plugins {
   echo "Installing plugins"
-  vim -c 'PlugInstall'
+  vim +PlugInstall +qall
   echo "Done."
 }
 
