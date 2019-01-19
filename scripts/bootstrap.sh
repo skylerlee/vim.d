@@ -24,6 +24,22 @@ function prefetch_plugins {
   echo "Done."
 }
 
+function find_line {
+  local file=$1
+  local token=$2
+  local paren=$([ "$3" -eq "0" ] && echo '{' || echo '}')
+  local ret=$(grep -Pon "\"\s*$token\s*$paren" $file)
+  echo ${ret%%:*}
+}
+
+function clip_code {
+  local file=$1
+  local token=$2
+  local begin=$(find_line $file "$token" 0)
+  local end=$(find_line $file "$token" 1)
+  sed -n "$((begin + 1)),$((end - 1))p" $file
+}
+
 function install_plugins {
   echo "Installing plugins"
   vim +PlugInstall +qall
