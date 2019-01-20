@@ -28,7 +28,7 @@ function find_line {
   local file=$1
   local token=$2
   local paren=$([ "$3" -eq "0" ] && echo '{' || echo '}')
-  local ret=$(grep -Pon "\"\s*$token\s*$paren" $file)
+  local ret=$(grep -Pon "\"{3}\s*$token\s*$paren" $file)
   echo ${ret%%:*}
 }
 
@@ -37,7 +37,12 @@ function clip_code {
   local token=$2
   local begin=$(find_line $file "$token" 0)
   local end=$(find_line $file "$token" 1)
-  sed -n "$((begin + 1)),$((end - 1))p" $file
+  if [[ -z $begin && -z $end ]]; then
+    echo "token not found: '$token'"
+    exit 1
+  else
+    sed -n "$((begin + 1)),$((end - 1))p" $file
+  fi
 }
 
 function install_plugins {

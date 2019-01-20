@@ -9,8 +9,7 @@ let g:infra_path_root = expand('$HOME/.vim.d')
 
 execute 'set rtp+=' . g:infra_path_root
 
-" Load plugins
-" ================================================================
+""" Load plugins {
 let s:settings = infra#load_json('settings.json')
 
 function s:register(name, conf)
@@ -20,8 +19,7 @@ endfunction
 call plug#begin(infra#path_resolve('bundle'))
 call infra#iter_dict(s:settings, function('s:register'))
 call plug#end()
-" ================================================================
-" End
+""" Load plugins }
 
 " Set linenumber
 set number
