@@ -8,4 +8,4 @@ jobs:
     - env: VIM=vim8
     - env: VIM=vim-latest
 script:
-  - echo 'test vimrc'
+  - bash scripts/bootstrap.sh
