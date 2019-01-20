@@ -25,14 +25,17 @@ function prefetch_plugins {
 }
 
 function find_line {
+  # find token in the given file
   local file=$1
   local token=$2
   local paren=$([ "$3" -eq "0" ] && echo '{' || echo '}')
   local ret=$(grep -Pon "\"{3}\s*$token\s*$paren" $file)
+  # returns line number
   echo ${ret%%:*}
 }
 
 function clip_code {
+  # clip file by line numbers
   local file=$1
   local token=$2
   local begin=$(find_line $file "$token" 0)
@@ -48,6 +51,7 @@ function clip_code {
 function install_plugins {
   local section1=$(clip_code vimrc 'Base config')
   local section2=$(clip_code vimrc 'Load plugins')
+  # generate vimrc content
   local content="$section1"$'\n\n'"$section2"
   echo "Installing plugins"
   vim -Nu <(echo "$content") +PlugInstall +qall
