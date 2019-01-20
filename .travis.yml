@@ -8,4 +8,6 @@ jobs:
     - env: VIM=vim8
     - env: VIM=vim-latest
 script:
-  - bash scripts/bootstrap.sh
+  - |
+    docker run -it --rm -v $PWD:/testplugin --entrypoint "/bin/bash" skylerlee/vim-testbed \
+    scripts/bootstrap.sh
