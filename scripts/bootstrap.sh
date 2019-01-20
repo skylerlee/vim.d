@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-DOTVIMD=$HOME/.vim.d
+if [[ -z $VIM ]]; then VIM=vim; fi
+if [[ -z $DOTVIMD ]]; then DOTVIMD=$HOME/.vim.d; fi
 
 DEPENDENCIES=(
   https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -54,7 +55,7 @@ function install_plugins {
   # generate vimrc content
   local content="$section1"$'\n\n'"$section2"
   echo "Installing plugins"
-  vim -Nu <(echo "$content") +PlugInstall +qall
+  $VIM -Nu <(echo "$content") +PlugInstall +qall
   echo "Done."
 }
 
