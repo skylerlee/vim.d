@@ -3,11 +3,13 @@
 " Use of this source code is governed by the MIT license that can be
 " found in the LICENSE file.
 
+""" Base config {
 set nocompatible  " be iMproved
 
 let g:infra_path_root = expand('$HOME/.vim.d')
 
 execute 'set rtp+=' . g:infra_path_root
+""" Base config }
 
 """ Load plugins {
 let s:settings = infra#load_json('settings.json')

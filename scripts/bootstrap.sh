@@ -46,8 +46,11 @@ function clip_code {
 }
 
 function install_plugins {
+  local section1=$(clip_code vimrc 'Base config')
+  local section2=$(clip_code vimrc 'Load plugins')
+  local content="$section1"$'\n\n'"$section2"
   echo "Installing plugins"
-  vim +PlugInstall +qall
+  vim -Nu <(echo "$content") +PlugInstall +qall
   echo "Done."
 }
 
