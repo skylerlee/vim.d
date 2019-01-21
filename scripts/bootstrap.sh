@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-VIM=${VIM:-vim}
+VIMPATH=${VIMPATH:-vim}
 DOTVIMD=${DOTVIMD:-$HOME/.vim.d}
 
 DEPENDENCIES=(
@@ -55,7 +55,7 @@ function install_plugins {
   # generate vimrc content
   local content="$section1"$'\n\n'"$section2"
   echo "Installing plugins"
-  $VIM -Nu <(echo "$content") +PlugInstall +qall
+  $VIMPATH -Nu <(echo "$content") +PlugInstall +qall
   echo "Done."
 }
 

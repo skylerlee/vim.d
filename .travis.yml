@@ -5,14 +5,14 @@ before_install:
   - docker pull skylerlee/vim-testbed
 jobs:
   include:
-    - env: VIM=/vim-build/bin/vim8
-    - env: VIM=/vim-build/bin/vim-latest
+    - env: VIMPATH=/vim-build/bin/vim8
+    - env: VIMPATH=/vim-build/bin/vim-latest
 script:
   - |
     docker run -it --rm \
     -v $PWD:/testplugin \
     -w /testplugin \
-    -e VIM=$VIM \
+    -e VIMPATH=$VIMPATH \
     --entrypoint "/bin/bash" \
     skylerlee/vim-testbed \
     scripts/bootstrap.sh
