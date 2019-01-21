@@ -10,4 +10,4 @@ jobs:
 script:
   - |
     docker run -it --rm -v $PWD:/testplugin --entrypoint "/bin/bash" skylerlee/vim-testbed \
-    scripts/bootstrap.sh
+    /testplugin/scripts/bootstrap.sh
