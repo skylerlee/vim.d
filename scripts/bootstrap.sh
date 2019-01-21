@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-if [[ -z $VIM ]]; then VIM=vim; fi
-if [[ -z $DOTVIMD ]]; then DOTVIMD=$HOME/.vim.d; fi
+VIM=${VIM:-vim}
+DOTVIMD=${DOTVIMD:-$HOME/.vim.d}
 
 DEPENDENCIES=(
   https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
