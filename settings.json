@@ -1,5 +1,6 @@
 {
   "scrooloose/nerdtree": {},
   "itchyny/lightline.vim": {},
+  "airblade/vim-gitgutter": {},
   "joshdick/onedark.vim": {}
 }
