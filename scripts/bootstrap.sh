@@ -50,12 +50,13 @@ function clip_code {
 }
 
 function install_plugins {
-  local section1=$(clip_code vimrc 'Base config')
-  local section2=$(clip_code vimrc 'Load plugins')
+  local vimrc=$DOTVIMD/vimrc
+  local section1=$(clip_code $vimrc 'Base config')
+  local section2=$(clip_code $vimrc 'Load plugins')
   # generate vimrc content
-  local content="$section1"$'\n\n'"$section2"
+  local genrc="$section1"$'\n\n'"$section2"
   echo "Installing plugins"
-  $VIMPATH -Nu <(echo "$content") +PlugInstall +qall
+  $VIMPATH -Nu <(echo "$genrc") +PlugInstall +qall
   echo "Done."
 }
 
