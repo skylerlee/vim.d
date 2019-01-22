@@ -9,10 +9,5 @@ jobs:
     - env: VIMPATH=/vim-build/bin/vim-latest
 script:
   - |
-    docker run -it --rm \
-    -v $PWD:/testplugin \
-    -w /testplugin \
-    -e VIMPATH=$VIMPATH \
-    --entrypoint "/bin/bash" \
-    skylerlee/vim-testbed \
-    scripts/bootstrap.sh
+    docker run -it --rm -e VIMPATH=$VIMPATH --entrypoint "/bin/bash" \
+    skylerlee/vim-testbed -c "echo started"
