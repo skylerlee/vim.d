@@ -8,6 +8,27 @@ DEPENDENCIES=(
   https://raw.githubusercontent.com/skylerlee/vim-infra/master/autoload/infra.vim
 )
 
+function init_colors {
+  if which tput >/dev/null 2>&1; then
+    local ncolors=$(tput colors)
+  fi
+  if [ -t 1 ] && [ -n "$ncolors" ] && [ "$ncolors" -ge 8 ]; then
+    RED="$(tput setaf 1)"
+    GREEN="$(tput setaf 2)"
+    YELLOW="$(tput setaf 3)"
+    BLUE="$(tput setaf 4)"
+    BOLD="$(tput bold)"
+    RESET="$(tput sgr0)"
+  else
+    RED=""
+    GREEN=""
+    YELLOW=""
+    BLUE=""
+    BOLD=""
+    RESET=""
+  fi
+}
+
 function fetch_file {
   local file_url="$1"
   local dest_dir="$2"
@@ -60,5 +81,10 @@ function install_plugins {
   echo "Done."
 }
 
+init_colors
 prefetch_plugins
 install_plugins
+
+printf "$GREEN"
+echo "Vim.d installed successfully."
+printf "$RESET"
