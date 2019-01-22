@@ -10,4 +10,4 @@ jobs:
 script:
   - |
     docker run -it --rm -e VIMPATH=$VIMPATH --entrypoint "/bin/bash" \
-    skylerlee/vim-testbed -c "echo started"
+    skylerlee/vim-testbed -c "$(curl -fsSL https://raw.githubusercontent.com/skylerlee/vim.d/master/scripts/install.sh)"
