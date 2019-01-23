@@ -51,7 +51,7 @@ function find_line {
   local file=$1
   local token=$2
   local paren=$([ "$3" -eq "0" ] && echo '{' || echo '}')
-  local ret=$(grep -Pon "\"{3}\s*$token\s*$paren" $file)
+  local ret=$(grep -on "\"\"\"\s\+$token\s\+$paren" $file)
   # returns line number
   echo ${ret%%:*}
 }
