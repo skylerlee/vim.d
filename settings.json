@@ -2,5 +2,9 @@
   "scrooloose/nerdtree": {},
   "itchyny/lightline.vim": {},
   "airblade/vim-gitgutter": {},
-  "joshdick/onedark.vim": {}
+  "joshdick/onedark.vim": {},
+  "junegunn/fzf": {
+    "dir": "~/.fzf",
+    "do": "./install --all"
+  }
 }
