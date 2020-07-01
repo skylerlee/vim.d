@@ -23,6 +23,9 @@ call infra#iter_dict(s:settings, function('s:register'))
 call plug#end()
 """ Load plugins }
 
+" Set backspace behavior
+set backspace=indent,eol,start
+
 " Set linenumber
 set number
 
